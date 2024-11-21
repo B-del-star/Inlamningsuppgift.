@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class TextReader {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);  // Skapa ett Scanner-objekt för att läsa in text
+        TextCounter counter = new TextCounter();  // Skapa ett TextCounter-objekt för att räkna tecken och rader
+
+        // Läs in text rad för rad tills användaren skriver "stop"
+        while (true) {
+            System.out.println("Skriv en rad (skriv 'stop' för att avsluta):");
+            String input = scanner.nextLine();  // Läs texten användaren skriver
+
+            // Om användaren skriver "stop", avsluta loopen
+            if (input.equalsIgnoreCase("stop")) {
+                break;  // Avsluta loopen om användaren skriver "stop"
+            }
+
+            counter.addText(input);  // Lägg till texten för att räknas
+        }
+
+        // Skriv ut resultatet genom att kalla på metoder i TextCounter
+        System.out.println("Totalt antal tecken: " + counter.getTotalCharacters());
+        System.out.println("Totalt antal rader: " + counter.getTotalLines());
+
+        scanner.close();  // Stäng scanner-objektet när vi är klara
+    }
+}
