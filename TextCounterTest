@@ -1,0 +1,34 @@
+import org.junit.Assert;
+import org.junit.Test;
+
+public class TextCounterTest {
+    @Test
+    public void getChars() {
+        TextCounter textCounter = new TextCounter();
+        textCounter.addText("hej glassen");
+
+
+        Assert.assertEquals(11, textCounter.getTotalCharacters());
+    }
+    @Test
+    public void getLines() {
+        TextCounter textCounter = new TextCounter();
+        textCounter.addText("hej glassen");
+        textCounter.addText("hej glassen");
+
+
+        Assert.assertEquals(2, textCounter.getTotalLines());
+    }
+    @Test
+    public void stopIsNotCounted() {
+        TextCounter textCounter = new TextCounter();
+        textCounter.addText("");
+        textCounter.addText("");
+        textCounter.addText("stop");
+
+
+        Assert.assertEquals(2, textCounter.getTotalLines());
+        Assert.assertEquals(0, textCounter.getTotalCharacters());
+    }
+}
+
