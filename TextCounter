@@ -1,0 +1,24 @@
+public class TextCounter {
+    private int totalCharacters = 0;  // Variabel för att räkna tecken
+    private int totalLines = 0;       // Variabel för att räkna rader
+
+    // Metod för att lägga till text och uppdatera räknarna
+    public void addText(String text) {
+       if (text.equalsIgnoreCase("stop")) {
+           return;
+
+       }
+        totalCharacters += text.length();  // Lägg till antalet tecken i texten
+        totalLines++;  // Öka antalet rader med 1
+    }
+
+    // Getter-metod för att få det totala antalet tecken
+    public int getTotalCharacters() {
+        return totalCharacters;
+    }
+
+    // Getter-metod för att få det totala antalet rader
+    public int getTotalLines() {
+        return totalLines;
+    }
+}
